@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roleplay Chat Bot Documentation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2 {
+            font-weight: 600;
+            margin-top: 1.5em;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid #eaecef;
+        }
+        h1 {
+            font-size: 1.8em;
+        }
+        h2 {
+            font-size: 1.4em;
+        }
+        code {
+            background: #f6f8fa;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        pre {
+            background: #f6f8fa;
+            padding: 1em;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+        .highlight {
+            background-color: #f6f8fa;
+            padding: 1em;
+            border-left: 3px solid #d1d5da;
+            margin: 1em 0;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Roleplay Chat Bot</h1>
+    
+    <p>A Telegram bot for immersive roleplaying experiences powered by Google's Gemini AI, using SQLite for local data storage.</p>
+    
+    <h2>Key Features</h2>
+    <ul>
+        <li><strong>AI-Powered Roleplaying</strong>: Utilizes Google's <code>gemini-2.0-flash</code> model for dynamic responses</li>
+        <li><strong>Character Management</strong>:
+            <ul>
+                <li>Store custom characters in local database</li>
+                <li>Manage user personas (roleplay profiles)</li>
+            </ul>
+        </li>
+        <li><strong>Privacy Focused</strong>:
+            <ul>
+                <li>No chat history storage</li>
+                <li>Each session starts fresh</li>
+            </ul>
+        </li>
+    </ul>
+    
+    <h2>Technical Stack</h2>
+    <div class="highlight">
+        <ul>
+            <li><strong>AI Provider</strong>: Google Generative AI API</li>
+            <li><strong>Backend</strong>: Python 3.12.3 with aiogram (Async Telegram Bot Framework)</li>
+            <li><strong>Database</strong>:
+                <ul>
+                    <li>SQLite via aiosqlite (async)</li>
+                    <li>SQLAlchemy ORM for data models</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    
+    <h2>Setup Instructions</h2>
+    <div class="highlight">
+        <ol>
+            <li>Create <code>.env</code> configuration file:
+                <pre><code>TELEGRAM_BOT_TOKEN=your_bot_token_here
+ DATABASE_URL=sqlite+aiosqlite:///db.sqlite3
+ DEBUG_MODE=true</code></pre>
+            </li>
+            <li>Install required dependencies:
+                <pre><code>pip install -r requirements.txt</code></pre>
+            </li>
+            <li>Launch the bot:
+                <pre><code>python3 main.py</code></pre>
+            </li>
+        </ol>
+    </div>
+    
+    <h2>Usage Guide</h2>
+    <ol>
+        <li>Initiate the bot with <code>/start</code> command</li>
+        <li>Use Options menu to:
+            <ul>
+                <li>Create and manage characters</li>
+                <li>Set up and manage user personas</li>
+            </ul>
+        </li>
+        <li>Select active character and persona before starting</li>
+        <li>Begin roleplaying by sending any message</li>
+        <li>Start the chat anew with New Chat menu option</li>
+        <li>Check your active characters and personas with <code>/status</code> command</li>
+    </ol>
+    
+    <h2>Database Information</h2>
+    <p>The application utilizes a local SQLite database (<code>db.sqlite3</code>) with:</p>
+    <ul>
+        <li>Simple relational schema (users, characters, personas)</li>
+        <li>Asynchronous database access via <code>aiosqlite</code></li>
+        <li>No conversation history storage</li>
+    </ul>
+    
+    <p><em>Note: All character and persona data is stored exclusively in the local SQLite database file.</em></p>
+</body>
+</html>

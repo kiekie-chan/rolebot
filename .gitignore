@@ -1,0 +1,5 @@
+.env
+db.sqlite3
+bot/__pycache__
+bot/database/__pycache__
+LLM/__pycache__
